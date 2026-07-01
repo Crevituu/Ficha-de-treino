@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ficha de Treino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ SPRITE DE ÍCONES (ilustrações dos exercícios) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+
+    <symbol id="icon-barbell" viewBox="0 0 64 64">
+      <rect x="6" y="24" width="8" height="16" rx="2"/>
+      <rect x="50" y="24" width="8" height="16" rx="2"/>
+      <rect x="14" y="28" width="6" height="8"/>
+      <rect x="44" y="28" width="6" height="8"/>
+      <line x1="20" y1="32" x2="44" y2="32"/>
+      <circle cx="32" cy="14" r="6"/>
+      <path d="M20 46 L44 46" stroke-dasharray="0"/>
+    </symbol>
+
+    <symbol id="icon-dumbbell" viewBox="0 0 64 64">
+      <rect x="8" y="22" width="10" height="20" rx="3"/>
+      <rect x="46" y="22" width="10" height="20" rx="3"/>
+      <rect x="18" y="28" width="28" height="8" rx="2"/>
+    </symbol>
+
+    <symbol id="icon-cable-crossover" viewBox="0 0 64 64">
+      <line x1="10" y1="10" x2="10" y2="54"/>
+      <line x1="54" y1="10" x2="54" y2="54"/>
+      <line x1="10" y1="18" x2="32" y2="34"/>
+      <line x1="54" y1="18" x2="32" y2="34"/>
+      <circle cx="32" cy="40" r="5"/>
+      <line x1="32" y1="45" x2="32" y2="54"/>
+    </symbol>
+
+    <symbol id="icon-cable-pulldown" viewBox="0 0 64 64">
+      <circle cx="32" cy="10" r="5"/>
+      <line x1="32" y1="15" x2="32" y2="34"/>
+      <line x1="18" y1="34" x2="46" y2="34"/>
+      <line x1="18" y1="34" x2="14" y2="48"/>
+      <line x1="46" y1="34" x2="50" y2="48"/>
+    </symbol>
+
+    <symbol id="icon-calf" viewBox="0 0 64 64">
+      <circle cx="32" cy="12" r="6"/>
+      <line x1="32" y1="18" x2="32" y2="38"/>
+      <line x1="32" y1="38" x2="24" y2="58"/>
+      <line x1="24" y1="58" x2="34" y2="58"/>
+      <line x1="20" y1="30" x2="44" y2="30"/>
+    </symbol>
+
+    <symbol id="icon-abs" viewBox="0 0 64 64">
+      <circle cx="14" cy="34" r="6"/>
+      <path d="M20 34 Q34 20 48 30" fill="none"/>
+      <path d="M48 30 L54 22" fill="none"/>
+      <path d="M48 30 L52 38" fill="none"/>
+      <line x1="8" y1="46" x2="56" y2="46"/>
+    </symbol>
+
+    <symbol id="icon-shoulder" viewBox="0 0 64 64">
+      <circle cx="32" cy="12" r="6"/>
+      <line x1="32" y1="18" x2="32" y2="40"/>
+      <line x1="32" y1="24" x2="14" y2="10"/>
+      <line x1="32" y1="24" x2="50" y2="10"/>
+      <line x1="32" y1="40" x2="22" y2="56"/>
+      <line x1="32" y1="40" x2="42" y2="56"/>
+    </symbol>
+
+    <symbol id="icon-leg-machine" viewBox="0 0 64 64">
+      <circle cx="16" cy="14" r="6"/>
+      <line x1="16" y1="20" x2="16" y2="38"/>
+      <line x1="16" y1="38" x2="30" y2="46"/>
+      <line x1="30" y1="46" x2="52" y2="40"/>
+      <line x1="16" y1="38" x2="10" y2="56"/>
+      <circle cx="52" cy="40" r="4"/>
+    </symbol>
+
+    <symbol id="icon-squat" viewBox="0 0 64 64">
+      <circle cx="32" cy="10" r="6"/>
+      <line x1="32" y1="16" x2="32" y2="30"/>
+      <line x1="20" y1="20" x2="44" y2="20"/>
+      <line x1="32" y1="30" x2="20" y2="42"/>
+      <line x1="20" y1="42" x2="20" y2="56"/>
+      <line x1="32" y1="30" x2="44" y2="42"/>
+      <line x1="44" y1="42" x2="44" y2="56"/>
+    </symbol>
+
+  </defs>
+</svg>
+
+<div id="app">
+
+  <!-- ============ CAPA ============ -->
+  <header class="capa">
+    <span class="capa-eyebrow"><span class="dot"></span> Plano ABC · Progressão de Carga</span>
+    <h1 class="capa-title">Ficha de<br><span>Treino</span></h1>
+    <p class="capa-sub" id="subtitulo">Progressão de Carga · Hipertrofia</p>
+
+    <div class="capa-fields">
+      <div class="capa-field">
+        <label for="input-aluno">Aluno(a)</label>
+        <input id="input-aluno" type="text" placeholder="Seu nome">
+      </div>
+      <div class="capa-field">
+        <label for="input-data">Início do ciclo</label>
+        <input id="input-data" type="date">
+      </div>
+    </div>
+
+    <div class="plates" id="plates"></div>
+  </header>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav-bar" id="nav-bar"></nav>
+
+  <!-- ============ WORKOUTS (preenchido via JS) ============ -->
+  <main id="workouts-root"></main>
+
+  <div class="footer-actions">
+    <button class="action-btn" id="btn-reset-all">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v6h6"/></svg>
+      Limpar tudo
+    </button>
+    <button class="action-btn primary" id="btn-print">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18h12v4H6zM6 14h12v4H6zM4 9h16v6H4z"/></svg>
+      Imprimir / Exportar PDF
+    </button>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   Dados embutidos (cópia de data.json). O app tenta primeiro
+   carregar data.json via fetch (funciona ao servir o site em
+   um servidor local); se isso falhar — por exemplo ao abrir o
+   arquivo diretamente com duplo clique — usa esta cópia local,
+   garantindo que a ficha funcione 100% offline também.
+   ========================================================= */
+const EMBEDDED_DATA = {"meta":{"titulo":"FICHA DE TREINO","subtitulo":"Progressão de Carga · Hipertrofia","aluno":"","objetivo":"Crescimento Muscular","frequencia":"ABC · 3x na semana"},"workouts":[{"id":"A","nome":"Peito e Tríceps","corPlate":"#800080","grupos":["Peito","Tríceps","Panturrilha","Abdômen"],"exercicios":[{"id":"a1","nome":"Supino Reto","grupo":"Peito","icon":"barbell","series":["10x20kg","8x22kg","6x25kg"],"obs":""},{"id":"a2","nome":"Crucifixo 35°","grupo":"Peito","icon":"dumbbell","series":["10x12kg","10x12kg","10x12kg"],"obs":""},{"id":"a3","nome":"Supino Inclinado","grupo":"Peito","icon":"barbell","series":["10x20kg","10x25kg","10x25kg"],"obs":""},{"id":"a4","nome":"Crossover","grupo":"Peito","icon":"cable-crossover","series":["10x3","10x3","10x3"],"obs":""},{"id":"a5","nome":"Tríceps Pulley","grupo":"Tríceps","icon":"cable-pulldown","series":["10x9","8x10","6x11"],"obs":""},{"id":"a6","nome":"Tríceps Corda","grupo":"Tríceps","icon":"cable-pulldown","series":["10x5","10x5","10x5"],"obs":""},{"id":"a7","nome":"Tríceps Coice","grupo":"Tríceps","icon":"dumbbell","series":["10x1","10x1","10x1"],"obs":""},{"id":"a8","nome":"Panturrilha Sentado","grupo":"Panturrilha","icon":"calf","series":["10x80kg","10x80kg","10x80kg"],"obs":""},{"id":"a9","nome":"Abdominal Remador","grupo":"Abdômen","icon":"abs","series":["30","30","30"],"obs":""}]},{"id":"B","nome":"Costas e Bíceps","corPlate":"#62059c","grupos":["Costas","Bíceps","Abdômen"],"exercicios":[{"id":"b1","nome":"Remada Cavalinho","grupo":"Costas","icon":"cable-pulldown","series":["10x35kg","8x40kg","10x40kg"],"obs":""},{"id":"b2","nome":"Remada Sentado","grupo":"Costas","icon":"cable-pulldown","series":["10x9","10x9","10x9"],"obs":""},{"id":"b3","nome":"Remada Curvada","grupo":"Costas","icon":"barbell","series":["10x8","10x8","10x8"],"obs":""},{"id":"b4","nome":"Crossover Inverso","grupo":"Costas","icon":"cable-crossover","series":["10x2","10x2","10x2"],"obs":""},{"id":"b5","nome":"Banco Scott","grupo":"Bíceps","icon":"barbell","series":["10x10kg","8x11kg","6x12kg"],"obs":""},{"id":"b6","nome":"Rosca Martelo","grupo":"Bíceps","icon":"dumbbell","series":["10x10kg","10x10kg","10x10kg"],"obs":""},{"id":"b7","nome":"Rosca Concentrada","grupo":"Bíceps","icon":"dumbbell","series":["10x8kg","10x8kg","10x8kg"],"obs":""},{"id":"b8","nome":"Abdominal Invertido","grupo":"Abdômen","icon":"abs","series":["30","30","30"],"obs":""}]},{"id":"C","nome":"Ombro, Trapézio e Perna","corPlate":"#341539","grupos":["Ombros","Trapézio","Pernas"],"exercicios":[{"id":"c1","nome":"Desenvolvimento Ombros","grupo":"Ombros","icon":"shoulder","series":["10x10kg","10x10kg","10x10kg"],"obs":""},{"id":"c2","nome":"Elevação Frontal","grupo":"Ombros","icon":"shoulder","series":["10x6kg","10x6kg","10x6kg"],"obs":""},{"id":"c3","nome":"Elevação Lateral","grupo":"Ombros","icon":"shoulder","series":["10x8kg","10x8kg","10x8kg"],"obs":""},{"id":"c4","nome":"Remada em Pé","grupo":"Trapézio","icon":"shoulder","series":["10x10kg","10x10kg","10x10kg"],"obs":""},{"id":"c5","nome":"Encolhimento","grupo":"Trapézio","icon":"shoulder","series":["10x20kg","10x20kg","10x20kg"],"obs":""},{"id":"c6","nome":"Afundo com Halter","grupo":"Pernas","icon":"dumbbell","series":["10x10kg","10x10kg","10x10kg"],"obs":""},{"id":"c7","nome":"Cadeira Extensora","grupo":"Pernas","icon":"leg-machine","series":["10x9","10x9","10x9"],"obs":""},{"id":"c8","nome":"Mesa Flexora","grupo":"Pernas","icon":"leg-machine","series":["10x9","10x9","10x9"],"obs":""},{"id":"c9","nome":"Agachamento Livre","grupo":"Pernas","icon":"squat","series":["10x10kg","10x10kg","10x10kg"],"obs":""}]}]};
+
+const STORAGE_KEY = "fichaTreinoState_v1";
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : { aluno: "", data: "", checks: {}, values: {}, obs: {}, notes: {} };
+  } catch (e) {
+    return { aluno: "", data: "", checks: {}, values: {}, obs: {}, notes: {} };
+  }
+}
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* silencioso */ }
+}
+
+let DATA = null;
+let state = loadState();
+let activeWorkout = null;
+
+async function init() {
+  try {
+    const res = await fetch("data.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("fetch falhou");
+    DATA = await res.json();
+  } catch (e) {
+    DATA = EMBEDDED_DATA;
+  }
+
+  document.getElementById("subtitulo").textContent = DATA.meta.subtitulo;
+  document.getElementById("input-aluno").value = state.aluno || "";
+  document.getElementById("input-data").value = state.data || "";
+
+  buildPlates();
+  buildNav();
+  buildWorkouts();
+
+  activeWorkout = DATA.workouts[0].id;
+  setActiveWorkout(activeWorkout);
+
+  document.getElementById("input-aluno").addEventListener("input", (e) => { state.aluno = e.target.value; saveState(); });
+  document.getElementById("input-data").addEventListener("input", (e) => { state.data = e.target.value; saveState(); });
+
+  document.getElementById("btn-print").addEventListener("click", () => window.print());
+  document.getElementById("btn-reset-all").addEventListener("click", () => {
+    if (confirm("Isso vai apagar todas as marcações, valores editados e anotações salvas. Continuar?")) {
+      state = { aluno: state.aluno, data: state.data, checks: {}, values: {}, obs: {}, notes: {} };
+      saveState();
+      buildWorkouts();
+      setActiveWorkout(activeWorkout);
+    }
+  });
+}
+
+function buildPlates() {
+  const wrap = document.getElementById("plates");
+  wrap.innerHTML = "";
+  DATA.workouts.forEach((w, i) => {
+    const btn = document.createElement("button");
+    btn.className = "plate";
+    btn.dataset.id = w.id;
+    btn.dataset.w = i + 1;
+    btn.innerHTML = `
+      <span class="plate-disc">${w.id}</span>
+    `;
+    btn.addEventListener("click", () => setActiveWorkout(w.id));
+    wrap.appendChild(btn);
+  });
+}
+
+function buildNav() {
+  const nav = document.getElementById("nav-bar");
+  nav.innerHTML = "";
+  DATA.workouts.forEach((w) => {
+    const btn = document.createElement("button");
+    btn.className = "nav-btn";
+    btn.dataset.id = w.id;
+    btn.innerHTML = `Treino ${w.id} <small>${w.nome}</small>`;
+    btn.addEventListener("click", () => setActiveWorkout(w.id));
+    nav.appendChild(btn);
+  });
+}
+
+function keyFor(exId, serieIdx) { return `${exId}_${serieIdx}`; }
+
+function buildWorkouts() {
+  const root = document.getElementById("workouts-root");
+  root.innerHTML = "";
+
+  DATA.workouts.forEach((w) => {
+    const section = document.createElement("section");
+    section.className = "workout";
+    section.id = `workout-${w.id}`;
+
+    section.innerHTML = `
+      <div class="workout-head">
+        <div>
+          <h2>Treino ${w.id} · ${w.nome}</h2>
+          <div class="workout-tags">${w.grupos.map(g => `<span class="tag">${g}</span>`).join("")}</div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Progresso</span><span id="progress-text-${w.id}">0%</span></div>
+          <div class="progress-track"><div class="progress-fill" id="progress-fill-${w.id}"></div></div>
+        </div>
+        <button class="reset-btn" data-reset="${w.id}">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v6h6"/></svg>
+          reiniciar treino
+        </button>
+      </div>
+
+      <div class="ex-head-row">
+        <span></span><span>Exercício</span><span>1ª série</span><span>2ª série</span><span>3ª série</span><span>Observações</span><span></span>
+      </div>
+
+      <div class="ex-table">
+        ${w.exercicios.map(ex => renderExRow(ex)).join("")}
+      </div>
+
+      <div class="notes">
+        <h3>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          Evolução e Anotações — Treino ${w.id}
+        </h3>
+        <p class="hint">Registre sensações, dores, cargas batidas ou metas para a próxima semana.</p>
+        <div class="note-form">
+          <input type="text" placeholder="Ex.: Consegui 25kg no supino sem perder a forma" data-note-input="${w.id}">
+          <button data-note-add="${w.id}">Salvar</button>
+        </div>
+        <ul class="note-list" id="note-list-${w.id}"></ul>
+      </div>
+    `;
+    root.appendChild(section);
+  });
+
+  // listeners: checkboxes
+  root.querySelectorAll(".check-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const row = btn.closest(".ex-row");
+      const exId = row.dataset.exId;
+      const wId = row.dataset.workoutId;
+      const allChecked = row.querySelectorAll(".serie-input").length;
+      const currentlyDone = row.classList.contains("done");
+      const newVal = !currentlyDone;
+      row.querySelectorAll(".serie-cell").forEach((cell, idx) => {
+        state.checks[keyFor(exId, idx)] = newVal;
+      });
+      row.classList.toggle("done", newVal);
+      saveState();
+      updateProgress(wId);
+    });
+  });
+
+  // listeners: inputs de série (valor editável)
+  root.querySelectorAll(".serie-input").forEach(input => {
+    input.addEventListener("input", () => {
+      state.values[input.dataset.key] = input.value;
+      saveState();
+    });
+  });
+
+  // listeners: observações
+  root.querySelectorAll(".obs-input").forEach(input => {
+    input.addEventListener("input", () => {
+      state.obs[input.dataset.exId] = input.value;
+      saveState();
+    });
+  });
+
+  // listeners: reset por treino
+  root.querySelectorAll("[data-reset]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const wId = btn.dataset.reset;
+      const workout = DATA.workouts.find(w => w.id === wId);
+      workout.exercicios.forEach(ex => {
+        ex.series.forEach((_, idx) => { delete state.checks[keyFor(ex.id, idx)]; delete state.values[keyFor(ex.id, idx)]; });
+        delete state.obs[ex.id];
+      });
+      saveState();
+      buildWorkouts();
+      setActiveWorkout(wId);
+    });
+  });
+
+  // notas
+  DATA.workouts.forEach(w => renderNotes(w.id));
+  root.querySelectorAll("[data-note-add]").forEach(btn => {
+    btn.addEventListener("click", () => addNote(btn.dataset.noteAdd));
+  });
+  root.querySelectorAll("[data-note-input]").forEach(input => {
+    input.addEventListener("keydown", (e) => { if (e.key === "Enter") addNote(input.dataset.noteInput); });
+  });
+
+  DATA.workouts.forEach(w => updateProgress(w.id));
+}
+
+function renderExRow(ex) {
+  const seriesHtml = ex.series.map((val, idx) => {
+    const k = keyFor(ex.id, idx);
+    const savedVal = state.values[k] !== undefined ? state.values[k] : val;
+    return `<span class="serie-cell"><input class="serie-input" data-key="${k}" value="${savedVal}"></span>`;
+  }).join("");
+
+  const allDone = ex.series.every((_, idx) => state.checks[keyFor(ex.id, idx)]);
+  const savedObs = state.obs[ex.id] !== undefined ? state.obs[ex.id] : ex.obs;
+
+  return `
+    <div class="ex-row ${allDone ? "done" : ""}" data-ex-id="${ex.id}" data-workout-id="${ex.id[0].toUpperCase()}">
+      <div class="ex-icon"><svg class="icon"><use href="#icon-${ex.icon}"></use></svg></div>
+      <div class="ex-name"><strong>${ex.nome}</strong><span>${ex.grupo}</span></div>
+      <div class="series-group">${seriesHtml}</div>
+      <input class="obs-input" data-ex-id="${ex.id}" placeholder="anotar..." value="${savedObs}">
+      <button class="check-btn" title="Marcar exercício como concluído">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+      </button>
+    </div>
+  `;
+}
+
+function updateProgress(wId) {
+  const workout = DATA.workouts.find(w => w.id === wId);
+  const total = workout.exercicios.length * 3;
+  let done = 0;
+  workout.exercicios.forEach(ex => ex.series.forEach((_, idx) => { if (state.checks[keyFor(ex.id, idx)]) done++; }));
+  const pct = Math.round((done / total) * 100);
+
+  const fill = document.getElementById(`progress-fill-${wId}`);
+  const text = document.getElementById(`progress-text-${wId}`);
+  if (fill) fill.style.width = pct + "%";
+  if (text) text.textContent = pct + "%";
+
+  const plateProgress = document.querySelector(`[data-progress-for="${wId}"]`);
+  if (plateProgress) plateProgress.textContent = `${done}/${total}`;
+}
+
+function setActiveWorkout(wId) {
+  activeWorkout = wId;
+  document.querySelectorAll(".workout").forEach(s => s.classList.toggle("visible", s.id === `workout-${wId}`));
+  document.querySelectorAll(".nav-btn").forEach(b => b.classList.toggle("active", b.dataset.id === wId));
+  document.querySelectorAll(".plate").forEach(p => p.classList.toggle("active", p.dataset.id === wId));
+}
+
+function addNote(wId) {
+  const input = document.querySelector(`[data-note-input="${wId}"]`);
+  const text = input.value.trim();
+  if (!text) return;
+  if (!state.notes[wId]) state.notes[wId] = [];
+  state.notes[wId].unshift({ text, date: new Date().toISOString() });
+  input.value = "";
+  saveState();
+  renderNotes(wId);
+}
+
+function deleteNote(wId, idx) {
+  state.notes[wId].splice(idx, 1);
+  saveState();
+  renderNotes(wId);
+}
+
+function renderNotes(wId) {
+  const list = document.getElementById(`note-list-${wId}`);
+  const notes = state.notes[wId] || [];
+  if (!notes.length) {
+    list.innerHTML = `<li class="note-empty">Nenhuma anotação ainda.</li>`;
+    return;
+  }
+  list.innerHTML = notes.map((n, idx) => {
+    const d = new Date(n.date);
+    const dateStr = d.toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" });
+    return `
+      <li class="note-item">
+        <div><time>${dateStr}</time>${n.text}</div>
+        <button data-del-note="${wId}" data-del-idx="${idx}" title="Remover">✕</button>
+      </li>
+    `;
+  }).join("");
+  list.querySelectorAll("[data-del-note]").forEach(b => {
+    b.addEventListener("click", () => deleteNote(b.dataset.delNote, Number(b.dataset.delIdx)));
+  });
+}
+
+init();
+</script>
+</body>
+</html>
