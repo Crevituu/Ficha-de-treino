@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "titulo": "FICHA DE TREINO",
+    "subtitulo": "Progressão de Carga · Hipertrofia",
+    "aluno": "",
+    "objetivo": "Crescimento Muscular",
+    "frequencia": "ABC · 3x na semana"
+  },
+  "workouts": [
+    {
+      "id": "A",
+      "nome": "Peito e Tríceps",
+      "corPlate": "#800080",
+      "grupos": ["Peito", "Tríceps", "Panturrilha", "Abdômen"],
+      "exercicios": [
+        { "id": "a1", "nome": "Supino Reto", "grupo": "Peito", "icon": "barbell", "series": ["10x20kg", "8x22kg", "6x25kg"], "obs": "" },
+        { "id": "a2", "nome": "Crucifixo 35°", "grupo": "Peito", "icon": "dumbbell", "series": ["10x12kg", "10x12kg", "10x12kg"], "obs": "" },
+        { "id": "a3", "nome": "Supino Inclinado", "grupo": "Peito", "icon": "barbell", "series": ["10x20kg", "10x25kg", "10x25kg"], "obs": "" },
+        { "id": "a4", "nome": "Crossover", "grupo": "Peito", "icon": "cable-crossover", "series": ["10x3", "10x3", "10x3"], "obs": "" },
+        { "id": "a5", "nome": "Tríceps Pulley", "grupo": "Tríceps", "icon": "cable-pulldown", "series": ["10x9", "8x10", "6x11"], "obs": "" },
+        { "id": "a6", "nome": "Tríceps Corda", "grupo": "Tríceps", "icon": "cable-pulldown", "series": ["10x5", "10x5", "10x5"], "obs": "" },
+        { "id": "a7", "nome": "Tríceps Coice", "grupo": "Tríceps", "icon": "dumbbell", "series": ["10x1", "10x1", "10x1"], "obs": "" },
+        { "id": "a8", "nome": "Panturrilha Sentado", "grupo": "Panturrilha", "icon": "calf", "series": ["10x80kg", "10x80kg", "10x80kg"], "obs": "" },
+        { "id": "a9", "nome": "Abdominal Remador", "grupo": "Abdômen", "icon": "abs", "series": ["30", "30", "30"], "obs": "" }
+      ]
+    },
+    {
+      "id": "B",
+      "nome": "Costas e Bíceps",
+      "corPlate": "#62059c",
+      "grupos": ["Costas", "Bíceps", "Abdômen"],
+      "exercicios": [
+        { "id": "b1", "nome": "Remada Cavalinho", "grupo": "Costas", "icon": "cable-pulldown", "series": ["10x35kg", "8x40kg", "10x40kg"], "obs": "" },
+        { "id": "b2", "nome": "Remada Sentado", "grupo": "Costas", "icon": "cable-pulldown", "series": ["10x9", "10x9", "10x9"], "obs": "" },
+        { "id": "b3", "nome": "Remada Curvada", "grupo": "Costas", "icon": "barbell", "series": ["10x8", "10x8", "10x8"], "obs": "" },
+        { "id": "b4", "nome": "Crossover Inverso", "grupo": "Costas", "icon": "cable-crossover", "series": ["10x2", "10x2", "10x2"], "obs": "" },
+        { "id": "b5", "nome": "Banco Scott", "grupo": "Bíceps", "icon": "barbell", "series": ["10x10kg", "8x11kg", "6x12kg"], "obs": "" },
+        { "id": "b6", "nome": "Rosca Martelo", "grupo": "Bíceps", "icon": "dumbbell", "series": ["10x10kg", "10x10kg", "10x10kg"], "obs": "" },
+        { "id": "b7", "nome": "Rosca Concentrada", "grupo": "Bíceps", "icon": "dumbbell", "series": ["10x8kg", "10x8kg", "10x8kg"], "obs": "" },
+        { "id": "b8", "nome": "Abdominal Invertido", "grupo": "Abdômen", "icon": "abs", "series": ["30", "30", "30"], "obs": "" }
+      ]
+    },
+    {
+      "id": "C",
+      "nome": "Ombro, Trapézio e Perna",
+      "corPlate": "#341539",
+      "grupos": ["Ombros", "Trapézio", "Pernas"],
+      "exercicios": [
+        { "id": "c1", "nome": "Desenvolvimento Ombros", "grupo": "Ombros", "icon": "shoulder", "series": ["10x10kg", "10x10kg", "10x10kg"], "obs": "" },
+        { "id": "c2", "nome": "Elevação Frontal", "grupo": "Ombros", "icon": "shoulder", "series": ["10x6kg", "10x6kg", "10x6kg"], "obs": "" },
+        { "id": "c3", "nome": "Elevação Lateral", "grupo": "Ombros", "icon": "shoulder", "series": ["10x8kg", "10x8kg", "10x8kg"], "obs": "" },
+        { "id": "c4", "nome": "Remada em Pé", "grupo": "Trapézio", "icon": "shoulder", "series": ["10x10kg", "10x10kg", "10x10kg"], "obs": "" },
+        { "id": "c5", "nome": "Encolhimento", "grupo": "Trapézio", "icon": "shoulder", "series": ["10x20kg", "10x20kg", "10x20kg"], "obs": "" },
+        { "id": "c6", "nome": "Afundo com Halter", "grupo": "Pernas", "icon": "dumbbell", "series": ["10x10kg", "10x10kg", "10x10kg"], "obs": "" },
+        { "id": "c7", "nome": "Cadeira Extensora", "grupo": "Pernas", "icon": "leg-machine", "series": ["10x9", "10x9", "10x9"], "obs": "" },
+        { "id": "c8", "nome": "Mesa Flexora", "grupo": "Pernas", "icon": "leg-machine", "series": ["10x9", "10x9", "10x9"], "obs": "" },
+        { "id": "c9", "nome": "Agachamento Livre", "grupo": "Pernas", "icon": "squat", "series": ["10x10kg", "10x10kg", "10x10kg"], "obs": "" }
+      ]
+    }
+  ]
+}
